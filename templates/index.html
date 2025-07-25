@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   <title> 🌟 Mundo sajayins</title>
+   <style>
+body{
+   background-color: white;
+   height: 100vh;
+   display: grid;
+   padding: 55px 0 0 0;
+   grid-template-areas: "main main main""footer footer footer";
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 100px;
+}
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family:sans-serif;
+   color: black;
+}
+
+header{
+   position:fixed;
+   width:100%;
+   height:55px;
+   inset:0;
+   display: flex;
+   z-index: 50;
+   background-color: black;
+   border-bottom: 1px solid gray;
+}
+.esferas{
+position: relative;
+width:100%;
+display:flex;
+height: 100%;
+}
+.esferas img{
+   object-fit: cover;
+   width: 100%;
+   height: auto;
+}
+
+main{
+   grid-area: main;
+   background-color: rgb(211, 192, 19);
+   display: grid;
+   grid-template-areas: "article article article""div_items div_items div_items";
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr auto;
+   /* padding: 60px 0 0 0; */
+   
+ 
+}
+main article{
+   width: 100%;
+   z-index: 20;
+   position:sticky;
+   top:0;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   padding: 20px 0 0 0;
+   gap: 20px;
+   background-color:white;
+   grid-area: article;
+  
+}
+
+
+article .input_item{
+   background-color:white;
+   display: flex;
+   width: 100%;
+   height: 50px;
+    align-items: center;
+    gap: 5px;
+   justify-content: center;
+}
+input{
+   /* background-image:url("static/imagenes/roshi.jpeg"); */
+  
+   padding:5px;
+   background-position: center;
+   border-radius: 1rem;
+   text-align: center;
+   width: 300px;
+   color:black
+}
+.start-btn{
+   background:linear-gradient(90deg,#eb9626,#edcf36);
+   width:80px;
+   border-radius: 1rem;
+   position: relative;
+   height: 30px;
+}
+.start-btn::before{
+   content: "⭐";
+   border-radius: 1rem;
+   position:absolute;
+   opacity: 0.4;
+   display: flex;
+ 
+   width:80px;
+    height: 30px;
+}
+.start-btn::after{
+   content: "⭐";
+   border-radius: 1rem;
+   position:absolute;
+   opacity: 0.4;
+  
+  right: 1px;
+  top: 22%;
+ 
+  
+   }
+   /* color for containers */
+/*#D9D9D9*/
+
+main .items_personajes{
+display: grid;
+   background-color:white;
+   grid-area: div_items;
+   /*border-top: 2px solid black;*/
+   grid-template-columns:repeat(auto-fill, minmax(200px,1fr));
+   /* grid-template-rows: 200px; */
+   grid-auto-rows:minmax(200px, 250px);
+   gap: 1rem;
+}
+
+   /*Items with personajes*/
+
+   .items{
+       border: 2px solid black;
+       display: flex;
+       flex-direction: column;
+       padding: 0 0 3px 0;
+       background:linear-gradient(90deg,#eb9626,#fffb00);
+     justify-content: space-between;
+      
+   }
+   .items img{
+       position:relative;
+       width: 200px;
+       height: 200px;
+   }
+footer{
+   grid-area: footer;
+   background-color:#CBD5EAed;
+   display: flex;
+   flex-direction: column;
+}
+footer .about{
+    width: 100%;
+   display: flex;
+   gap:10px;
+   justify-content: space-between;
+    height: 50px;
+    background-color: transparent;
+
+}
+
+footer .descriptions{
+   position: relative;
+   background-color: transparent;
+   width: 100%;
+   display: flex;
+    height: 50px;
+
+}
+.float_card{
+border: 2px solid black;
+       display: flex;
+       flex-direction: column;
+       background:linear-gradient(90deg,#eb9626,#fffb00);
+       animation:desplazar 0.4s linear;
+       margin:auto;
+       position:relative;
+       scale:1.8;
+}
+a{
+   text-decoration: none;
+}
+
+/*loader_container*/
+.container{
+position:fixed;
+top:0;
+left:0;
+ width:100%;
+ height:100%;
+ display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+background:rgba(255, 255, 255, 0.80);
+ 
+
+}
+/*loader-item*/
+ .loader{
+ position:relative;
+ width:50px;
+ height:50px;
+ border:4px solid #123ec9;
+ border-radius:50%;
+ border-top:4px solid #fbf9c9;
+ animation: girar 1s linear infinite;
+ }
+ 
+ @keyframes girar{
+	from{transform:rotate(0deg);
+    }
+	to{transform:rotate(360deg);
+    }
+}
+
+
+   </style>
+</head>
+<body>
+   <header>
+       <div class="esferas">
+           <img src="/static/imagenes/esferas.png" alt="Imagen de esferas">
+       </div>
+   </header>
+   <main>
+  
+       <article>
+           <h1 class="h1">Bienvenidos a mundo sajayin</h1>
+           <div class="input_item">
+           <input type="text" id="buscar-sajayin" placeholder="Buscar sajayin 🔎">
+           <button type="button" onclick="render_Datos()" class="start-btn" style="display:inline-block;">Buscar</button>
+           </div>
+       </article>
+       <div class="items_personajes"></div>
+   </main>
+   <footer>
+<article class="about">
+   <h3><a href="#">Home</a></h3>
+   <h3><a href="#">Donate</a></h3>
+   <h3><a href="#">About Us</a></h3>
+   <h3><a href="#">Contact Us</a></h3>
+</article>
+ 
+<article class="descriptions">
+
+</article>
+
+   </footer>
+
+   <script>
+
+   async function personajes_base(){
+  const res = await fetch("https://dragonball-api.com/api/characters?limit=58");
+  const datos = await res.json();
+	
+    return datos;
+}
+
+function mostrarPersonajes(personajes){
+  if(personajes){
+    personajes.items.forEach((personaje)=>{
+    const div = document.createElement('div');
+    div.className = 'items';
+    document.querySelector(".items_personajes").appendChild(div);
+      
+    let img = document.createElement('img');
+    img.src = personaje.image;
+    div.appendChild(img);
+
+})
+}
+
+}
+
+async function manejarPersonajes(){
+const personajes = await  personajes_base();
+const mostrar = mostrarPersonajes(personajes);
+}
+
+manejarPersonajes()
+
+ async function buscar(){
+
+	if(document.body.querySelector('.container')){
+
+	return;
+	}
+   
+   const inputValue = document.getElementById('buscar-sajayin').value.trim()
+   if(!inputValue){
+      alert('por favor, ingrese el nombre en el campo')
+      return
+   }
+   
+    const dato = {
+         nombre: inputValue
+      } 
+
+   
+   
+	 const container = document.createElement('div');
+    container.className = 'container';
+	const div = document.createElement('div');
+	div.className = 'loader';
+	
+	document.body.appendChild(container);
+	container.appendChild(div);
+	
+try{
+
+ const res = await fetch('http://localhost:8000/sajayin',{
+         method: 'POST',
+         headers: {'Content-type': 'application/json'},
+         body: JSON.stringify(dato)
+      });
+
+      const response = await res.json()
+      return response;
+       document.querySelector('.h1').textContent = JSON.stringify(response,null,2);
+}catch(error){
+    document.querySelector('.h1').textContent = error;
+}
+  
+	finally{
+      setTimeout(()=>{
+      document.body.removeChild(container);
+
+
+	},3000)
+}
+
+}
+
+ 
+
+
+function datosRecibidos(datos_re) {
+  if (datos_re && datos_re.resultados.length > 0) {
+    // Limpiar los resultados anteriores
+    document.querySelector('.items_personajes').innerHTML = '';
+
+    datos_re.resultados.forEach((dato) => {
+      const div = document.createElement('div');
+
+      div.className = 'items';
+      
+      let img = document.createElement('img');
+     img.src = dato.imagen;
+     div.appendChild(img);
+
+      
+     
+
+       
+      document.querySelector('.items_personajes').appendChild(div);
+    });
+  } else {
+    document.querySelector('.items_personajes').innerHTML = '<p>No se encontraron resultados</p>';
+  }
+}
+
+async function render_Datos(){
+
+   const datos_re = await buscar();
+
+   const mostrarDatos = datosRecibidos(datos_re)
+
+}
+
+    
+   </script>
+</body>
+</html>
+
