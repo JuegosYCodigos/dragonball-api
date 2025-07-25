@@ -1,5 +1,6 @@
 from fastapi import FastAPI,Request
 from pydantic import BaseModel
+from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,6 +11,7 @@ templates = Jinja2Templates(directory="templates")
 
 app = FastAPI()
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
 app.add_middleware(
    CORSMiddleware,
    allow_origins=['*'],
