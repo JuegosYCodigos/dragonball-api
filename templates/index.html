@@ -124,6 +124,7 @@ input{
 
 main .items_personajes{
 display: grid;
+padding:10px;
    background-color:white;
    grid-area: div_items;
    /*border-top: 2px solid black;*/
@@ -137,6 +138,7 @@ display: grid;
 
    .items{
        border: 2px solid black;
+       border-radius:4px;
        display: flex;
        flex-direction: column;
        padding: 0 0 3px 0;
@@ -315,7 +317,7 @@ manejarPersonajes()
 	
 try{
 
- const res = await fetch('http://localhost:8000/sajayin',{
+ const res = await fetch('https://dragonball-api.onrender.com/sajayin',{
          method: 'POST',
          headers: {'Content-type': 'application/json'},
          body: JSON.stringify(dato)
