@@ -1,10 +1,10 @@
 from database import Base,engine,sessionLocal
-from sqlalchemy import Column,String,Integer,Text
+from sqlalchemy import Column,String,Integer,Text,BIGINT
 
 
 try:
     class DragonBall(Base):
-        __tablename__ = 'personajes'
+        __tablename__ = 'personajess'
         __table_args__ = {'extend_existing': True}
 
 
@@ -12,13 +12,14 @@ try:
         nombre = Column(String(25))
         descripcion = Column(Text)
         genero = Column(String(25))
-        ki = Column(Integer)
-        max_ki = Column(Integer)
+        ki = Column(BIGINT)
+        max_ki = Column(BIGINT)
         imagen = Column(Text)
         raza = Column(String(25))
         print('conneccion creada conn exito')
 except Exception as e:
     print(e)
+Base.metadata.create_all(bind=engine)
 
 session = sessionLocal()
 
