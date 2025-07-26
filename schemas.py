@@ -16,7 +16,7 @@ try:
         max_ki = Column(BIGINT)
         imagen = Column(Text)
         raza = Column(String(25))
-        print('conneccion creada conn exito')
+       
 except Exception as e:
     print(e)
 Base.metadata.create_all(bind=engine)
@@ -25,5 +25,3 @@ session = sessionLocal()
 
 
 
-#for dato in datos:
-    #print(f'id: {dato.id}, nombre: {dato.nombre}, raza: {dato.raza}, genero: {dato.genero}' )
