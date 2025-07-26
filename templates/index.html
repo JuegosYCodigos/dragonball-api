@@ -147,23 +147,8 @@ padding:10px;
       
    }
 
-   .items2{
-       border: 2px solid black;
-       border-radius:4px;
-       display: flex;
-       flex-direction: column;
-       padding: 0 0 3px 0;
-       background-color:#ffd700 ;
-     justify-content: space-between;
-      
-   }
+   
    .items img{
-       position:relative;
-       width: 200px;
-       height: 200px;
-   }
-
-   .items2 img{
        position:relative;
        width: 200px;
        height: 200px;
@@ -286,7 +271,7 @@ function mostrarPersonajes(personajes){
   if(personajes){
     personajes.items.forEach((personaje)=>{
     const div = document.createElement('div');
-    div.className = 'items2';
+    div.className = 'items';
     document.querySelector(".items_personajes").appendChild(div);
       
     let img = document.createElement('img');
