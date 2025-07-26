@@ -328,8 +328,9 @@ try{
       });
 
       const response = await res.json()
+      document.querySelector('.h1').textContent = JSON.stringify(response,null,2);
       return response;
-       document.querySelector('.h1').textContent = JSON.stringify(response,null,2);
+      
 }catch(error){
     document.querySelector('.h1').textContent = error;
 }
